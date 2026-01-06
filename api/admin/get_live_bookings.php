@@ -38,11 +38,9 @@ $sql = "SELECT
             b.user_id,
             b.operator_id,
             b.machine_id,
-            b.booking_date,
-            b.start_time,
-            b.end_time,
-            b.total_hours,
-            b.total_amount,
+            b.created_at as booking_date,
+            b.hours as total_hours,
+            b.amount as total_amount,
             b.status,
             b.location,
             u.name as user_name,
@@ -56,8 +54,7 @@ $sql = "SELECT
         LEFT JOIN users u ON b.user_id = u.user_id
         LEFT JOIN operators o ON b.operator_id = o.operator_id
         LEFT JOIN machines m ON b.machine_id = m.machine_id
-        -- WHERE b.status IN ('Pending', 'In Progress', 'Accepted')
-        ORDER BY b.booking_date DESC, b.start_time DESC";
+        ORDER BY b.created_at DESC";
 
 $result = $conn->query($sql);
 

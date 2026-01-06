@@ -10,15 +10,21 @@ $dbname = 'earthmover';
 $username = 'root';
 $password = '';
 
-// Create connection using mysqli
-$conn = new mysqli($host, $username, $password, $dbname);
+// Create connection using mysqli with exception handling
+mysqli_report(MYSQLI_REPORT_OFF); // Disable auto-exceptions for cleaner handling
 
-// Check connection
-if ($conn->connect_error) {
+try {
+    $conn = new mysqli($host, $username, $password, $dbname);
+    
+    // Check connection
+    if ($conn->connect_error) {
+        throw new Exception($conn->connect_error);
+    }
+} catch (Exception $e) {
     header('Content-Type: application/json');
     die(json_encode([
         'success' => false,
-        'message' => 'Database connection failed: ' . $conn->connect_error
+        'message' => 'Database connection failed: ' . $e->getMessage()
     ]));
 }
 

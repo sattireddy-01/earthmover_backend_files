@@ -1,10 +1,22 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // Turn off HTML error display
 
-// Correct include path for XAMPP structure
-// deployed to api/user/, needs to go to config/database.php
-include_once '../../config/database.php';
+// Robust database include (handles both dev and prod/xampp file structures)
+$dbPath1 = __DIR__ . '/../../config/database.php'; // XAMPP standard
+$dbPath2 = __DIR__ . '/../../database.php';        // Project root fallback
+
+if (file_exists($dbPath1)) {
+    include_once $dbPath1;
+} elseif (file_exists($dbPath2)) {
+    include_once $dbPath2;
+} else {
+    // Fatal error if neither found
+    echo json_encode(['success' => false, 'message' => 'Database configuration not found']);
+    exit;
+}
 
 // Check connection
 if (!isset($conn) || $conn->connect_error) {
@@ -14,6 +26,10 @@ if (!isset($conn) || $conn->connect_error) {
 
 if (isset($_GET['user_id'])) {
     $user_id = $conn->real_escape_string($_GET['user_id']);
+    
+    // DEBUG: Log the request to a file
+    $log_entry = date('Y-m-d H:i:s') . " - Request for user_id: " . $user_id . "\n";
+    file_put_contents('debug_log.txt', $log_entry, FILE_APPEND);
 
     $query = "SELECT 
                 b.booking_id, 
@@ -41,6 +57,15 @@ if (isset($_GET['user_id'])) {
               ORDER BY b.created_at DESC";
 
     $result = $conn->query($query);
+
+    if ($result === false) {
+        // Query Failed! Return the specific SQL error properly
+        echo json_encode([
+            "success" => false, 
+            "message" => "Query Failed: " . $conn->error
+        ]);
+        exit;
+    }
 
     $bookings_arr = array();
     $bookings_arr["success"] = false;
