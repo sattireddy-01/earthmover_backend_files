@@ -1,0 +1,154 @@
+===========================================
+FREE SMS SETUP - NO CREDIT CARD REQUIRED!
+===========================================
+
+I've configured TextLocal which gives you 10 FREE SMS immediately!
+
+===========================================
+STEP 1: SIGN UP (2 minutes - FREE)
+===========================================
+
+1. Go to: https://www.textlocal.in
+2. Click "Sign Up" (top right)
+3. Fill in:
+   - Name: Your Name
+   - Email: Your Email
+   - Phone: Your Phone Number
+   - Password: Create Password
+4. Click "Sign Up"
+5. Verify your email (check inbox)
+6. Login to your account
+
+TOTAL TIME: 2 minutes
+COST: FREE (No credit card needed!)
+
+===========================================
+STEP 2: GET API KEY (1 minute)
+===========================================
+
+1. After login, you'll see the Dashboard
+2. Look for "API" or "API Key" in the menu
+3. Click on it
+4. You'll see your API Key (looks like: abc123def456ghi789...)
+5. Click "Copy" or select and copy it
+6. Save it somewhere safe
+
+TOTAL TIME: 1 minute
+
+===========================================
+STEP 3: CONFIGURE PHP FILE (1 minute)
+===========================================
+
+1. Open: C:\xampp\htdocs\Earth_mover\api\request_password_reset.php
+2. Find line 168 (look for: $apiKey = 'YOUR_TEXTLOCAL_API_KEY';)
+3. Replace 'YOUR_TEXTLOCAL_API_KEY' with your actual API key
+
+Example:
+BEFORE: $apiKey = 'YOUR_TEXTLOCAL_API_KEY';
+AFTER:  $apiKey = 'abc123def456ghi789jkl012mno345';
+
+4. Save the file (Ctrl+S)
+
+TOTAL TIME: 1 minute
+
+===========================================
+STEP 4: TEST (30 seconds)
+===========================================
+
+1. Make sure XAMPP Apache is running
+2. Open your Android app
+3. Click "Send Code"
+4. Wait 10-30 seconds
+5. Check your phone - you'll receive SMS!
+
+TOTAL TIME: 30 seconds
+
+===========================================
+TOTAL SETUP TIME: 4-5 MINUTES
+===========================================
+
+After setup, you'll receive OTP via SMS!
+
+===========================================
+WHY TEXTLOCAL?
+===========================================
+
+✅ FREE 10 SMS immediately
+✅ No credit card required
+✅ Easy signup (2 minutes)
+✅ Works in India
+✅ Simple API
+✅ Low cost after free SMS (₹0.10-0.15 per SMS)
+
+===========================================
+TROUBLESHOOTING
+===========================================
+
+Problem: "Invalid API Key"
+Solution: Double-check you copied the entire key correctly
+
+Problem: "Insufficient balance"
+Solution: You used all 10 free SMS - add credits or sign up for more
+
+Problem: SMS not received
+Solution: 
+- Check sms_log.txt for errors
+- Verify phone number is correct
+- Wait 1-2 minutes (SMS can be delayed)
+
+===========================================
+ALTERNATIVE FREE SERVICES
+===========================================
+
+If TextLocal doesn't work, try:
+
+1. Fast2SMS: https://www.fast2sms.com (10 FREE SMS)
+2. MSG91: https://msg91.com (10-20 FREE SMS)
+3. SMS Gateway API: Various free tiers available
+
+===========================================
+QUICK REFERENCE
+===========================================
+
+Website: https://www.textlocal.in
+File to edit: request_password_reset.php
+Line to edit: 168 ($apiKey = 'YOUR_KEY_HERE';)
+SMS Log: C:\xampp\htdocs\Earth_mover\api\sms_log.txt
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

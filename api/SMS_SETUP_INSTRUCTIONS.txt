@@ -1,0 +1,112 @@
+===========================================
+SMS GATEWAY SETUP INSTRUCTIONS
+===========================================
+
+Currently, OTPs are being generated and logged to:
+C:\xampp\htdocs\Earth_mover\api\otp_log.txt
+
+To send actual SMS, you need to configure an SMS gateway.
+
+===========================================
+OPTION 1: MSG91 (Recommended for India)
+===========================================
+
+1. Sign up at: https://msg91.com
+2. Get your Auth Key from dashboard
+3. Edit: request_password_reset.php
+4. Find line: $authKey = 'YOUR_MSG91_AUTH_KEY';
+5. Replace with: $authKey = 'your_actual_auth_key_here';
+6. Set your sender ID (6 characters): $senderId = 'EARTHM';
+
+Example:
+$authKey = '1234567890ABCDEF';
+$senderId = 'EARTHM';
+
+===========================================
+OPTION 2: TextLocal (India)
+===========================================
+
+1. Sign up at: https://www.textlocal.in
+2. Get your API Key
+3. Edit: request_password_reset.php
+4. Uncomment the TextLocal section (remove /* and */)
+5. Replace: $apiKey = 'YOUR_TEXTLOCAL_API_KEY';
+6. With your actual API key
+
+===========================================
+OPTION 3: Twilio (International)
+===========================================
+
+1. Sign up at: https://www.twilio.com
+2. Get Account SID and Auth Token
+3. Get a phone number from Twilio
+4. Edit: request_password_reset.php
+5. Uncomment the Twilio section
+6. Replace:
+   - $accountSid = 'YOUR_TWILIO_ACCOUNT_SID';
+   - $authToken = 'YOUR_TWILIO_AUTH_TOKEN';
+   - $fromNumber = 'YOUR_TWILIO_PHONE_NUMBER';
+
+===========================================
+TESTING WITHOUT SMS GATEWAY
+===========================================
+
+For testing, you can check the OTP from:
+C:\xampp\htdocs\Earth_mover\api\otp_log.txt
+
+The latest OTP for your phone number will be there.
+
+===========================================
+SMS LOG
+===========================================
+
+After configuring SMS, responses will be logged to:
+C:\xampp\htdocs\Earth_mover\api\sms_log.txt
+
+Check this file to see if SMS was sent successfully.
+
+===========================================
+COST INFORMATION
+===========================================
+
+- MSG91: ~₹0.15-0.20 per SMS in India
+- TextLocal: ~₹0.10-0.15 per SMS in India
+- Twilio: ~$0.0075 per SMS (varies by country)
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

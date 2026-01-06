@@ -1,0 +1,94 @@
+===========================================
+FIX EMAIL LOGIN - ADD EMAIL TO DATABASE
+===========================================
+
+PROBLEM: You're trying to login with email "bhadragrisattireddy@gmail.com"
+but this email doesn't exist in your database (all emails are NULL).
+
+SOLUTION: Add the email to your user record
+
+===========================================
+OPTION 1: ADD EMAIL VIA phpMyAdmin (EASIEST)
+===========================================
+
+1. Open phpMyAdmin: http://localhost/phpmyadmin
+2. Select database: earthmover
+3. Click on table: users
+4. Find user with phone: 7995778148 (Sattireddy)
+5. Click "Edit" (pencil icon)
+6. In the "email" field, enter: bhadragrisattireddy@gmail.com
+7. Click "Go" to save
+
+DONE! Now you can login with email.
+
+===========================================
+OPTION 2: RUN SQL QUERY
+===========================================
+
+1. Open phpMyAdmin
+2. Click "SQL" tab
+3. Copy and paste this:
+
+UPDATE `users` 
+SET `email` = 'bhadragrisattireddy@gmail.com' 
+WHERE `phone` = '7995778148';
+
+4. Click "Go"
+
+===========================================
+OPTION 3: USE PHONE NUMBER INSTEAD
+===========================================
+
+If you don't want to add email, just login with phone:
+- Phone: 7995778148
+- Password: Your password
+
+This will work immediately!
+
+===========================================
+AFTER ADDING EMAIL
+===========================================
+
+1. Make sure email is saved in database
+2. Try login again with:
+   - Email: bhadragrisattireddy@gmail.com
+   - Password: Your password
+3. Should work now!
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

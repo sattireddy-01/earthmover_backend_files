@@ -1,0 +1,87 @@
+===========================================
+FREE SMS ALTERNATIVES FOR OTP
+===========================================
+
+Since I cannot create an API key for you, here are FREE alternatives:
+
+===========================================
+OPTION 1: TEXTLOCAL (FREE 10 SMS)
+===========================================
+
+1. Sign up: https://www.textlocal.in
+2. Get FREE 10 SMS for testing
+3. Get API Key from dashboard
+4. Cost: FREE for first 10 SMS, then ₹0.10-0.15 per SMS
+
+Setup:
+- Edit request_password_reset.php
+- Uncomment TextLocal section
+- Add your API key
+
+===========================================
+OPTION 2: FAST2SMS (FREE 10 SMS)
+===========================================
+
+1. Sign up: https://www.fast2sms.com
+2. Get FREE 10 SMS
+3. Get API Key
+4. Cost: FREE for testing, then ₹0.15 per SMS
+
+===========================================
+OPTION 3: USE TEST MODE (NO API KEY NEEDED)
+===========================================
+
+I've created a test mode that:
+- Generates OTP
+- Logs to file (otp_log.txt)
+- Shows OTP in response (for testing only)
+- Works immediately without any setup
+
+Check the updated request_password_reset.php file!
+
+===========================================
+OPTION 4: MSG91 (FREE 10-20 SMS)
+===========================================
+
+1. Sign up: https://msg91.com
+2. Get FREE test credits
+3. Get Auth Key
+4. Configure in PHP file
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

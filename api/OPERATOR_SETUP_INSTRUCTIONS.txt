@@ -1,0 +1,136 @@
+===========================================
+OPERATOR LOGIN SETUP INSTRUCTIONS
+===========================================
+
+I've updated the code to support operator login with email and password!
+
+===========================================
+STEP 1: CREATE OPERATORS TABLE
+===========================================
+
+1. Open phpMyAdmin: http://localhost/phpmyadmin
+2. Select database: earthmover
+3. Click "SQL" tab
+4. Copy and paste the SQL from: CREATE_OPERATORS_TABLE.sql
+5. Click "Go"
+
+OR manually create:
+
+CREATE TABLE IF NOT EXISTS `operators` (
+    `operator_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `phone` VARCHAR(15) NOT NULL,
+    `email` VARCHAR(255) DEFAULT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    `address` TEXT DEFAULT NULL,
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`operator_id`),
+    UNIQUE KEY `phone` (`phone`),
+    UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+===========================================
+STEP 2: ADD TEST OPERATOR (Optional)
+===========================================
+
+To test operator login, add a test operator:
+
+1. In phpMyAdmin, go to operators table
+2. Click "Insert" tab
+3. Fill in:
+   - name: Test Operator
+   - phone: 9876543210
+   - email: operator@example.com
+   - password: $2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi
+     (This is "test123" hashed)
+   - address: Test Address
+4. Click "Go"
+
+OR run SQL:
+
+INSERT INTO `operators` (`name`, `phone`, `email`, `password`, `address`) 
+VALUES (
+    'Test Operator', 
+    '9876543210', 
+    'operator@example.com',
+    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+    'Test Address'
+);
+
+===========================================
+STEP 3: TEST OPERATOR LOGIN
+===========================================
+
+1. Open your Android app
+2. Go to Operator Login
+3. Enter:
+   - Email: operator@example.com
+   - OR Phone: 9876543210
+   - Password: test123
+4. Click Login
+5. Should work!
+
+===========================================
+WHAT I FIXED
+===========================================
+
+✅ Updated OperatorLoginActivity to detect email vs phone
+✅ Updated layout hint to "Email / Phone"
+✅ Fixed login API to handle operators table correctly
+✅ Operators can now login with email OR phone
+
+===========================================
+OPERATOR SIGNUP (Future)
+===========================================
+
+Currently operator signup is not implemented. To add operators:
+1. Use phpMyAdmin to insert directly
+2. OR implement operator signup API (similar to user_signup.php)
+
+===========================================
+NOTES
+===========================================
+
+- Operators table uses `operator_id` as primary key
+- Users table uses `user_id` as primary key
+- Login API handles both correctly
+- Email is optional but recommended
+- Phone must be unique
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

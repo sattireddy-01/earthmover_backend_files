@@ -1,0 +1,161 @@
+===========================================
+MSG91 SMS GATEWAY SETUP GUIDE
+===========================================
+
+MSG91 is the BEST option for sending SMS in India.
+Cost: ~₹0.15-0.20 per SMS
+
+===========================================
+STEP 1: CREATE MSG91 ACCOUNT
+===========================================
+
+1. Go to: https://msg91.com
+2. Click "Sign Up" or "Get Started"
+3. Fill in your details:
+   - Company Name: Your Company Name
+   - Email: Your Email
+   - Phone: Your Phone Number
+4. Verify your email and phone number
+5. Complete KYC (Know Your Customer) verification
+   - Upload business documents
+   - This is required for approval
+
+===========================================
+STEP 2: GET YOUR AUTH KEY
+===========================================
+
+1. Login to MSG91 Dashboard
+2. Go to: API > Auth Key
+3. Copy your Auth Key (it looks like: 1234567890ABCDEF...)
+4. Keep it safe - you'll need it in the next step
+
+===========================================
+STEP 3: GET SENDER ID APPROVED
+===========================================
+
+1. In MSG91 Dashboard, go to: Sender ID
+2. Click "Add Sender ID"
+3. Enter: EARTHM (or your preferred 6-character ID)
+4. Submit for approval
+5. Wait for approval (usually 1-2 business days)
+6. Once approved, you can use it
+
+Note: You can also use default sender IDs like:
+- MSGIND (for India)
+- TXTLCL (generic)
+
+===========================================
+STEP 4: CONFIGURE PHP FILE
+===========================================
+
+1. Open: C:\xampp\htdocs\Earth_mover\api\request_password_reset.php
+2. Find this line (around line 140):
+   $authKey = 'YOUR_MSG91_AUTH_KEY';
+3. Replace with your actual Auth Key:
+   $authKey = '1234567890ABCDEF'; // Your actual key
+4. Update sender ID if different:
+   $senderId = 'EARTHM'; // Your approved sender ID
+
+Example:
+$authKey = '3456789012BCDEFG';
+$senderId = 'EARTHM';
+
+===========================================
+STEP 5: TEST SMS SENDING
+===========================================
+
+1. Make sure XAMPP is running
+2. Test in Postman or your Android app
+3. Check SMS log: C:\xampp\htdocs\Earth_mover\api\sms_log.txt
+4. You should receive SMS on your phone
+
+===========================================
+TROUBLESHOOTING
+===========================================
+
+Problem: SMS not received
+Solution:
+- Check sms_log.txt for error messages
+- Verify Auth Key is correct
+- Check if sender ID is approved
+- Ensure you have balance in MSG91 account
+
+Problem: "Invalid Auth Key" error
+Solution:
+- Double-check your Auth Key in the PHP file
+- Make sure there are no extra spaces
+- Regenerate Auth Key from MSG91 dashboard if needed
+
+Problem: "Sender ID not approved"
+Solution:
+- Use default sender ID like 'MSGIND'
+- Or wait for your custom sender ID approval
+
+Problem: "Insufficient balance"
+Solution:
+- Add credits to your MSG91 account
+- Go to Dashboard > Recharge
+
+===========================================
+COST INFORMATION
+===========================================
+
+- Transactional SMS: ~₹0.15-0.20 per SMS
+- Promotional SMS: ~₹0.10-0.15 per SMS
+- Minimum recharge: Usually ₹500-1000
+- No monthly charges
+
+===========================================
+ALTERNATIVE: FREE TESTING
+===========================================
+
+MSG91 provides free test credits:
+- Usually 10-20 free SMS for testing
+- Check your dashboard for available credits
+
+===========================================
+SUPPORT
+===========================================
+
+MSG91 Support:
+- Email: support@msg91.com
+- Phone: +91-120-400-4000
+- Live Chat: Available on website
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

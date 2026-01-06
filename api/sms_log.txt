@@ -1,0 +1,9 @@
+2025-12-22 16:17:05 - Phone: 7675903108, Status: SMS not sent - MSG91 Auth Key not configured
+2025-12-22 16:26:17 - Phone: 7675903108, Status: SMS not sent - MSG91 Auth Key not configured
+2025-12-22 16:29:55 - Phone: 7995778148, Status: SMS not sent - MSG91 Auth Key not configured
+2025-12-22 16:30:43 - Phone: 7995778148, Status: SMS not sent - MSG91 Auth Key not configured
+2025-12-22 16:35:15 - Phone: 7995778148, Status: SMS not sent - MSG91 Auth Key not configured
+2025-12-22 16:48:58 - TEST MODE - Phone: 7675903108, OTP: 596600
+  → To receive SMS, configure MSG91 API key (see STEP_BY_STEP_SMS_SETUP.txt)
+2025-12-22 16:49:11 - TEST MODE - Phone: 7675903108, OTP: 702463
+  → To receive SMS, configure MSG91 API key (see STEP_BY_STEP_SMS_SETUP.txt)

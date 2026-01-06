@@ -1,0 +1,132 @@
+===========================================
+QUICK FIX FOR LOGIN ERROR
+===========================================
+
+ERROR: "Invalid email or password"
+
+CAUSE: Email "bhadragrisattireddy@gmail.com" is not in database
+
+===========================================
+SOLUTION 1: ADD EMAIL TO DATABASE (2 minutes)
+===========================================
+
+STEP 1: Open phpMyAdmin
+- Go to: http://localhost/phpmyadmin
+- Select database: earthmover
+- Click table: users
+
+STEP 2: Find Your User
+- Look for user with phone: 7995778148
+- Or user_id: 12 (Sattireddy)
+
+STEP 3: Add Email
+- Click "Edit" (pencil icon)
+- In "email" field, enter: bhadragrisattireddy@gmail.com
+- Click "Go"
+
+STEP 4: Test Login
+- Email: bhadragrisattireddy@gmail.com
+- Password: Your password
+- Should work now!
+
+===========================================
+SOLUTION 2: USE PHONE NUMBER (WORKS NOW)
+===========================================
+
+Instead of email, use phone number:
+- Phone: 7995778148
+- Password: Your password
+
+This works immediately without any changes!
+
+===========================================
+SOLUTION 3: RUN SQL QUERY
+===========================================
+
+1. Open phpMyAdmin
+2. Click "SQL" tab
+3. Paste this:
+
+UPDATE `users` 
+SET `email` = 'bhadragrisattireddy@gmail.com' 
+WHERE `phone` = '7995778148';
+
+4. Click "Go"
+5. Try login again
+
+===========================================
+VERIFY EMAIL WAS ADDED
+===========================================
+
+Run this SQL to check:
+
+SELECT user_id, name, phone, email 
+FROM users 
+WHERE phone = '7995778148';
+
+You should see the email in the result.
+
+===========================================
+TEST WITH DEBUG API
+===========================================
+
+1. Temporarily change ApiService.java:
+   @POST("auth/user_login_debug.php")  // Instead of user_login.php
+
+2. Try login again
+3. Check the response - it will show detailed debug info
+4. Change back to user_login.php after testing
+
+===========================================
+COMMON ISSUES
+===========================================
+
+Issue: Still getting "Invalid email or password"
+Solution:
+- Make sure email was saved in database
+- Check if password is correct
+- Try with phone number first to verify password works
+
+Issue: Email field shows NULL after adding
+Solution:
+- Make sure you clicked "Go" to save
+- Refresh the page and check again
+- Try the SQL query method instead
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

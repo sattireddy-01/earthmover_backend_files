@@ -1,0 +1,131 @@
+===========================================
+QUICK SMS SETUP - GET OTP VIA SMS
+===========================================
+
+CURRENT STATUS: SMS not configured - OTPs are only logged to file
+
+LATEST OTP FOR TESTING:
+- Phone: 7995778148
+- Latest OTP: 560717 (from 16:30:43)
+- Check: C:\xampp\htdocs\Earth_mover\api\otp_log.txt
+
+===========================================
+OPTION 1: QUICK SETUP WITH MSG91 (5 minutes)
+===========================================
+
+STEP 1: Sign up at MSG91
+- Go to: https://msg91.com
+- Click "Sign Up" (free account)
+- Fill in your details
+- Verify email
+
+STEP 2: Get Auth Key (2 minutes)
+- Login to MSG91 Dashboard
+- Go to: API → Auth Key
+- Copy your Auth Key (looks like: 3456789012BCDEFG...)
+
+STEP 3: Configure PHP File (1 minute)
+- Open: C:\xampp\htdocs\Earth_mover\api\request_password_reset.php
+- Find line 168: $authKey = 'YOUR_MSG91_AUTH_KEY';
+- Replace with: $authKey = 'YOUR_ACTUAL_KEY_HERE';
+- Save the file
+
+STEP 4: Test
+- Click "Send Code" in your app
+- You should receive SMS!
+
+===========================================
+OPTION 2: USE DEFAULT SENDER ID (No Approval Needed)
+===========================================
+
+If you don't want to wait for sender ID approval:
+
+1. In request_password_reset.php, line 169, change:
+   $senderId = 'EARTHM';
+   
+   To:
+   $senderId = 'MSGIND';  // This works immediately, no approval needed
+
+2. Configure your Auth Key (from Option 1, Step 2)
+
+3. Test - SMS will work immediately!
+
+===========================================
+OPTION 3: FREE TEST CREDITS
+===========================================
+
+MSG91 provides free test credits:
+- Usually 10-20 free SMS
+- Check your dashboard after signup
+- No payment required for testing
+
+===========================================
+TROUBLESHOOTING
+===========================================
+
+Problem: Still not receiving SMS after setup
+Solution:
+1. Check sms_log.txt for error messages
+2. Verify Auth Key is correct (no extra spaces)
+3. Check MSG91 dashboard for balance
+4. Try using 'MSGIND' as sender ID
+
+Problem: "Invalid Auth Key" error
+Solution:
+- Double-check the key in PHP file
+- Make sure no quotes are missing
+- Regenerate key from MSG91 dashboard
+
+Problem: "Insufficient balance"
+Solution:
+- Add credits to MSG91 account
+- Or use free test credits first
+
+===========================================
+FOR IMMEDIATE TESTING (Without SMS Setup)
+===========================================
+
+1. Click "Send Code" in app
+2. Open: C:\xampp\htdocs\Earth_mover\api\otp_log.txt
+3. Find the latest OTP for your phone number
+4. Enter that OTP in the app
+
+The OTP is valid for 5 minutes.
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

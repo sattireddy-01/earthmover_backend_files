@@ -1,0 +1,111 @@
+===========================================
+HOW TO RUN SQL IN phpMyAdmin
+===========================================
+
+STEP 1: Open phpMyAdmin
+------------------------
+1. Go to: http://localhost/phpmyadmin
+2. Or: http://localhost/phpmyadmin/index.php?route=/sql&db=earthmover
+
+STEP 2: Select Database
+------------------------
+1. Click on "earthmover" database in the left sidebar
+2. If not visible, click "New" to create it first (but it should exist)
+
+STEP 3: Open SQL Tab
+---------------------
+1. Click on "SQL" tab at the top
+2. You'll see a text area where you can paste SQL
+
+STEP 4: Paste SQL Code
+----------------------
+1. Open the file: COMPLETE_DATABASE_SETUP.sql
+2. Copy ALL the contents (Ctrl+A, Ctrl+C)
+3. Paste into the SQL text area in phpMyAdmin (Ctrl+V)
+
+STEP 5: Execute SQL
+-------------------
+1. Click the "Go" button at the bottom
+2. Wait for execution to complete
+3. You should see "X rows affected" or success messages
+
+STEP 6: Verify Changes
+----------------------
+1. Click "Browse" tab
+2. Select "users" table - check if email column exists
+3. Select "operators" table - check if email and password columns exist
+4. Check if data was updated correctly
+
+===========================================
+QUICK COPY-PASTE METHOD
+===========================================
+
+1. Open: C:\xampp\htdocs\Earth_mover\api\COMPLETE_DATABASE_SETUP.sql
+2. Select all (Ctrl+A)
+3. Copy (Ctrl+C)
+4. Go to phpMyAdmin SQL tab
+5. Paste (Ctrl+V)
+6. Click "Go"
+
+===========================================
+TROUBLESHOOTING
+===========================================
+
+Error: "Column already exists"
+Solution: This is fine! The SQL uses "IF NOT EXISTS" so it won't fail.
+
+Error: "Table doesn't exist"
+Solution: Make sure you selected the "earthmover" database first.
+
+Error: "Access denied"
+Solution: Make sure XAMPP MySQL is running.
+
+Error: "Syntax error"
+Solution: Make sure you copied the ENTIRE SQL file, not just part of it.
+
+===========================================
+AFTER RUNNING SQL
+===========================================
+
+1. Check users table - should have email column
+2. Check operators table - should have email and password columns
+3. Check password_resets table - should exist
+4. Test login with email in your app
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

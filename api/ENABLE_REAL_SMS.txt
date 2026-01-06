@@ -1,0 +1,111 @@
+===========================================
+HOW TO ENABLE REAL SMS (Receive OTP on Phone)
+===========================================
+
+CURRENT STATUS: Test Mode is ON - OTPs are logged but not sent via SMS
+
+===========================================
+QUICK FIX (3 Steps - 5 minutes)
+===========================================
+
+STEP 1: Get MSG91 API Key
+---------------------------
+1. Go to: https://msg91.com
+2. Sign up (free) or Login
+3. Dashboard → API → Auth Key
+4. Copy your Auth Key
+
+STEP 2: Edit PHP File
+----------------------
+1. Open: C:\xampp\htdocs\Earth_mover\api\request_password_reset.php
+2. Find line 165: $TEST_MODE = true;
+3. Change to: $TEST_MODE = false;
+4. Find line 190: $authKey = 'YOUR_MSG91_AUTH_KEY';
+5. Replace with: $authKey = 'YOUR_ACTUAL_KEY_HERE';
+6. Save file
+
+STEP 3: Test
+-------------
+1. Click "Send Code" in app
+2. You'll receive SMS on your phone!
+
+===========================================
+DETAILED INSTRUCTIONS
+===========================================
+
+FILE: C:\xampp\htdocs\Earth_mover\api\request_password_reset.php
+
+Line 165 - Change this:
+   $TEST_MODE = true;
+   
+To:
+   $TEST_MODE = false;
+
+Line 190 - Change this:
+   $authKey = 'YOUR_MSG91_AUTH_KEY';
+   
+To:
+   $authKey = '3456789012BCDEFG123456'; // Your actual MSG91 Auth Key
+
+Line 191 - Change this:
+   $senderId = 'MSGIND'; // This works immediately
+
+===========================================
+ALTERNATIVE: Keep Test Mode But Get OTP
+===========================================
+
+If you want to keep test mode but see OTP easily:
+
+1. Check: C:\xampp\htdocs\Earth_mover\api\otp_log.txt
+2. Find the latest entry for your phone number
+3. Use that OTP
+
+Or check: C:\xampp\htdocs\Earth_mover\api\sms_log.txt
+
+===========================================
+FREE SMS OPTIONS
+===========================================
+
+MSG91: Free 10-20 test SMS
+TextLocal: Free 10 SMS
+Fast2SMS: Free 10 SMS
+
+All provide free credits for testing!
+
+===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
